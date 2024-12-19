@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One & Only</title>
+    <!-- Pievienots Kadwa fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigācijas josla -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home Page</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Komandas nosaukums -->
+    <div class="team-name">
+        <h1>One & Only</h1>
+    </div>
+
+    <!-- Piemēri -->
+    <section class="examples">
+        <div class="example">
+            <h2>8 interjera dizaina tendences, kas 2024. gadā būs redzamas visur</h2>
+            <button onclick="window.location.href='https://jauns.lv/raksts/maja-un-darzs/590689-8-interjera-dizaina-tendences-kas-2024-gada-bus-redzamas-visur'">Skatīt sīkāk</button>
+        </div>
+        <div class="example">
+            <h2>Virtuves dizains 2024 – tendences un citi jaunumi</h2>
+            <button onclick="window.location.href='https://www.modernasmebeles.lv/blogs/virtuves-dizains-tendences'">Skatīt sīkāk</button>
+        </div>
+        <div class="example">
+            <h2>5 interjera toņu tendences 2024. gadā</h2>
+            <button onclick="window.location.href='https://tikkurila.lv/kampanas/5-interjera-tonu-tendences-2024-gada'">Skatīt sīkāk</button>
+        </div>
+    </section>
+
+    <!-- Datu vizualizācijas -->
+    <section class="charts">
+        <h3>1. Vidējais mājokļa cenu indekss un pārmaiņas Latvijā no 2006. līdz 2024.gadam.</h3>
+        <p>
+            Stabiņu diagramma parāda mājokļa cenu izmaiņas Latvijā dažādos laika periodos. Tā palīdz izprast cenu pieauguma tendences un to, kā ekonomiskie apstākļi ir ietekmējuši mājokļu tirgu Latvijā.
+        </p>
+        <!-- vizualizāciju šeit -->
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <h3>2. Vidējā mājvietas pirkuma cena dažādās pilsētās no 1995.gada līdz 2017.gadam</h3>
+        <p>
+            Līniju diagramma atspoguļo vidējās mājokļa cenas dažādās pilsētās laika periodā no 1995. līdz 2017. gadam. Dati ļauj analizēt, kā cenas mainījušās reģionāli un kā tās varētu ietekmēt mājokļu pieejamību.
+        </p>
+        <!-- vizualizāciju šeit -->
+        <div class="chart-container">
+            <canvas id="myLineChart"></canvas>
+        </div>
+    </section>
+
+    <script>
+        // Chart 1: Bar Chart
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctxBar = document.getElementById('myChart').getContext('2d');
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['2006.-2010.', '2011.-2014.', '2015.-2019.', '2020.-2024.'],
+                    datasets: [{
+                        label: 'Vidējais mājokļa cenu indekss un pārmaiņas Latvijā',
+                        data: [423.2, 386.85, 472.85, 699.67],
+                        borderWidth: 1,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(255, 193, 7, 0.6)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(255, 193, 7, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+
+        // Chart 2: Line Chart
+        const ctxLine = document.getElementById('myLineChart').getContext('2d');
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['Nederland', 'Groningen (PV)', 'Zuid-Holland (PV)', 'Noord-Brabant (PV)', 'Amsterdam', 'Rotterdam'],
+                datasets: [{
+                    label: 'Vidējā mājvietas pirkuma cena dažādās pilsētās no 1995.gada līdz 2017.gadam.',
+                    data: [226.96, 169.17, 219.66, 234.17, 303.20, 187.54],
+                    borderColor: 'rgba(255, 99, 132, 1)', 
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', 
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
